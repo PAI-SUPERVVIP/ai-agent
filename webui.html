@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html><body>
+<h1>🔥 HackerAI Agent ฟรี</h1>
+<input id="target" placeholder="Target IP/URL"><br>
+<textarea id="prompt" placeholder="เช่น: scan port 80, SQLi payload, reverse shell">สแกน target ด้วย nmap</textarea><br>
+<button onclick="hack()">Hack!</button>
+<pre id="output"></pre>
+<script>
+async function hack() {
+    const target = document.getElementById('target').value;
+    const prompt = document.getElementById('prompt').value;
+    const res = await fetch('/hack', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({prompt, target})
+    });
+    const data = await res.json();
+    document.getElementById('output').textContent = data.code;
+}
+</script>
+</body></html>
