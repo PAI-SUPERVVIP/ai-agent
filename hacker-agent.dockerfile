@@ -1,6 +1,5 @@
 FROM ollama/ollama
-RUN ollama pull deepseek-coder:6.7b
-RUN ollama pull mistral:7b
+RUN ollama pull llama3.2:3b
 
 # Web UI + API
 RUN apt update && apt install -y nodejs npm python3 python3-pip
